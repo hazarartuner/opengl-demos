@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		72A1CE47244E16F00081E077 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 72A1CE46244E16F00081E077 /* main.cpp */; };
+		72A1CE4F244E22140081E077 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A1CE4E244E22140081E077 /* OpenGL.framework */; };
+		72A1CE51244E22F40081E077 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A1CE50244E22F40081E077 /* libGLEW.2.1.0.dylib */; };
+		72A1CE53244E23140081E077 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A1CE52244E23140081E077 /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		72A1CE43244E16F00081E077 /* OpenGL Demos */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OpenGL Demos"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A1CE46244E16F00081E077 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		72A1CE4E244E22140081E077 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		72A1CE50244E22F40081E077 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		72A1CE52244E23140081E077 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../usr/local/Cellar/sdl2/2.0.12_1/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A1CE53244E23140081E077 /* libSDL2-2.0.0.dylib in Frameworks */,
+				72A1CE51244E22F40081E077 /* libGLEW.2.1.0.dylib in Frameworks */,
+				72A1CE4F244E22140081E077 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +52,7 @@
 			children = (
 				72A1CE45244E16F00081E077 /* OpenGL Demos */,
 				72A1CE44244E16F00081E077 /* Products */,
+				72A1CE4D244E22140081E077 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +70,16 @@
 				72A1CE46244E16F00081E077 /* main.cpp */,
 			);
 			path = "OpenGL Demos";
+			sourceTree = "<group>";
+		};
+		72A1CE4D244E22140081E077 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72A1CE52244E23140081E077 /* libSDL2-2.0.0.dylib */,
+				72A1CE50244E22F40081E077 /* libGLEW.2.1.0.dylib */,
+				72A1CE4E244E22140081E077 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +196,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -228,6 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -241,6 +263,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZAZN79SKQP;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0_1/lib,
+					/usr/local/Cellar/sdl2/2.0.12_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -251,6 +278,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZAZN79SKQP;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0_1/lib,
+					/usr/local/Cellar/sdl2/2.0.12_1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
