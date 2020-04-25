@@ -8,18 +8,21 @@
 
 #include <iostream>
 
-#define GLEW_STATIC
-#define GL_SILENCE_DEPRECATION
-#define GL_GLEXT_PROTOTYPES 1
+#ifdef __APPLE__
+    #define GL_SILENCE_DEPRECATION
+    #define GL_GLEXT_PROTOTYPES 1
+    #include <OpenGL/gl3.h>
+#else
+    #define GLEW_STATIC
+    #include <GL/glew.h>
+#endif
 
-#include <GL/glew.h>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_opengl.h>
 
 const GLint WIDTH = 1280, HEIGHT = 720;
 
 int main(int argc, const char * argv[]) {
-    
+
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0){
         std::cout << "STD Initialization error" << SDL_GetError() << std::endl;
     }
@@ -33,18 +36,21 @@ int main(int argc, const char * argv[]) {
     
     SDL_GLContext context = SDL_GL_CreateContext(window);
     
+#ifndef __APPLE__
     glewExperimental = GL_TRUE;
     
     if (GLEW_OK != glewInit()) {
         std::cout << "Glew Failed" << std::endl;
         return EXIT_FAILURE;
     }
+#endif
     
     glViewport(0, 0, WIDTH, HEIGHT);
     
     SDL_Event windowEvent;
     
     while(true) {
+        // Listen for quit event
         if (SDL_PollEvent(&windowEvent)) {
             if (windowEvent.type == SDL_QUIT) {
                 break;
